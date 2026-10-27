@@ -14,7 +14,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/OpenMellon/openpdf/pkcs7/internal/rc2"
+	"github.com/OpenMellon/pkcs7/internal/rc2"
 )
 
 // loadTestIdentity reads testdata/<name>.crt and testdata/<name>.key (PKCS#8).

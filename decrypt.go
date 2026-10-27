@@ -16,7 +16,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/OpenMellon/openpdf/pkcs7/internal/rc2"
+	"github.com/OpenMellon/pkcs7/internal/rc2"
 )
 
 // ErrUnsupportedAlgorithm is returned when the key transport or content

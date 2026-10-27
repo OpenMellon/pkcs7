@@ -13,7 +13,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/OpenMellon/openpdf/pkcs7/internal/rc2"
+	"github.com/OpenMellon/pkcs7/internal/rc2"
 )
 
 type envelopedData struct {
