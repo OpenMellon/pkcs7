@@ -108,12 +108,12 @@ func lengthLength(i int) (numBytes int) {
 // added to 0x80. The length is encoded in big endian encoding follow after
 //
 // Examples:
-//  length | byte 1 | bytes n
-//  0      | 0x00   | -
-//  120    | 0x78   | -
-//  200    | 0x81   | 0xC8
-//  500    | 0x82   | 0x01 0xF4
 //
+//	length | byte 1 | bytes n
+//	0      | 0x00   | -
+//	120    | 0x78   | -
+//	200    | 0x81   | 0xC8
+//	500    | 0x82   | 0x01 0xF4
 func encodeLength(out *bytes.Buffer, length int) (err error) {
 	if length >= 128 {
 		l := lengthLength(length)
@@ -161,7 +161,7 @@ func readObject(r *bytes.Reader, depth int) (obj asn1Object, err error) {
 	if l, err = r.ReadByte(); err != nil {
 		return nil, fmt.Errorf("end of ber data reached")
 	}
-	length := (int)(l & 0x7F)
+	length := int(l & 0x7F)
 	// A definite length of zero (0x00) is an empty value, not the indefinite
 	// form (0x80).
 	indefinite := false
@@ -184,14 +184,14 @@ func readObject(r *bytes.Reader, depth int) (obj asn1Object, err error) {
 				return nil, fmt.Errorf("length is more than available data")
 			}
 			if i == 0 {
-				if numberOfBytes == 4 && (int)(sl) > 0x7F {
+				if numberOfBytes == 4 && int(sl) > 0x7F {
 					return nil, errors.New("ber2der: BER tag length is negative")
 				}
-				if 0x0 == (int)(sl) {
+				if 0x0 == int(sl) {
 					return nil, errors.New("ber2der: BER tag length has leading zero")
 				}
 			}
-			length = length*256 + (int)(sl)
+			length = length*256 + int(sl)
 		}
 	}
 

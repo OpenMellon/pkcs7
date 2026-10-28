@@ -12,7 +12,7 @@ import (
 
 func TestEncryptDecrypt(t *testing.T) {
 	// Test vectors from RFC 2268 section 5.
-	var tests = []struct {
+	tests := []struct {
 		key    string
 		plain  string
 		cipher string

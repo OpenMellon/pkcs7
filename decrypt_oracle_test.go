@@ -376,7 +376,6 @@ func TestImplicitRejectionKey(t *testing.T) {
 			t.Errorf("n=%d: key is a prefix of the %d-byte key", n, n+1)
 		}
 	}
-
 }
 
 func TestCanonicalCiphertext(t *testing.T) {

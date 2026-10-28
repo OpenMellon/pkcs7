@@ -357,8 +357,10 @@ func TestDecryptRejectsMalformedCiphertext(t *testing.T) {
 
 	// Constructed [0] whose second chunk is an INTEGER, not an OCTET STRING.
 	chunk, _ := asn1.Marshal(make([]byte, 8))
-	eci.EncryptedContent = asn1.RawValue{Class: asn1.ClassContextSpecific, Tag: 0, IsCompound: true,
-		Bytes: append(chunk, 0x02, 0x01, 0x05)}
+	eci.EncryptedContent = asn1.RawValue{
+		Class: asn1.ClassContextSpecific, Tag: 0, IsCompound: true,
+		Bytes: append(chunk, 0x02, 0x01, 0x05),
+	}
 	if _, err := eci.decrypt(key); err == nil {
 		t.Error("constructed content with a non-OCTET STRING chunk: expected error")
 	}

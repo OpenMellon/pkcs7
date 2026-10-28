@@ -1,0 +1,11 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Throwaway private keys embedded as test fixtures"
+paths = [
+  '''^testdata/.*\.key$''',
+  '''^decrypt_test\.go$''',
+  '''^verify_fixtures_test\.go$''',
+  '''^verify_test_dsa\.go$''',
+]

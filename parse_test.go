@@ -35,5 +35,4 @@ func TestParse(t *testing.T) {
 		t.Error(err)
 		t.FailNow()
 	}
-
 }
